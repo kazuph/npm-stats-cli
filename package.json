@@ -1,6 +1,6 @@
 {
   "name": "@kazuph/npmstat-cli",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Advanced CLI tool for comprehensive NPM package statistics and analytics",
   "keywords": [
     "npm",

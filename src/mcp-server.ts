@@ -237,7 +237,8 @@ class NPMStatsMCPServer {
     const stats = await this.npmAPI.getUserPackageStats(username);
     
     const summary = `📦 ${username}'s NPM Stats:\n` +
-      `Total Downloads: ${formatNumber(stats.totalDownloads)}\n` +
+      `Monthly Downloads: ${formatNumber(stats.totalMonthlyDownloads)}\n` +
+      `Weekly Downloads: ${formatNumber(stats.totalWeeklyDownloads)}\n` +
       `Total Stars: ${formatNumber(stats.totalStars)}\n` +
       `Total Packages: ${stats.packageCount}`;
 
@@ -278,14 +279,15 @@ class NPMStatsMCPServer {
     return `📊 NPM Statistics for ${stats.username}\n` +
       `${'='.repeat(50)}\n` +
       `📦 Total Packages: ${stats.packageCount}\n` +
-      `⬇️  Total Downloads: ${formatNumber(stats.totalDownloads)}\n` +
+      `⬇️  Monthly Downloads: ${formatNumber(stats.totalMonthlyDownloads)}\n` +
+      `📅 Weekly Downloads: ${formatNumber(stats.totalWeeklyDownloads)}\n` +
       `⭐ Total Stars: ${formatNumber(stats.totalStars)}\n` +
       `🍴 Total Forks: ${formatNumber(stats.totalForks)}`;
   }
 
   private formatUserStatsDetailed(stats: UserPackageStats): string {
     const topPackages = stats.packages
-      .sort((a: any, b: any) => b.totalDownloads - a.totalDownloads)
+      .sort((a: any, b: any) => b.monthlyDownloads - a.monthlyDownloads)
       .slice(0, 10);
 
     let detailed = 'Top Packages by Downloads:\n';

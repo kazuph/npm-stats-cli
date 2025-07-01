@@ -145,7 +145,6 @@ export class NPMStatsAPI {
                 }
                 packageStats.push({
                     name: packageName,
-                    totalDownloads: monthlyDownloads.downloads, // monthly for backward compatibility
                     weeklyDownloads: weeklyDownloads.downloads,
                     monthlyDownloads: monthlyDownloads.downloads,
                     githubStats,
@@ -180,14 +179,14 @@ export class NPMStatsAPI {
                 originalPkg.weeklyRank = index + 1;
         });
         // Calculate totals
-        const totalDownloads = successfulStats.reduce((sum, pkg) => sum + pkg.monthlyDownloads, 0);
+        const totalMonthlyDownloads = successfulStats.reduce((sum, pkg) => sum + pkg.monthlyDownloads, 0);
         const totalWeeklyDownloads = successfulStats.reduce((sum, pkg) => sum + pkg.weeklyDownloads, 0);
         const totalStars = successfulStats.reduce((sum, pkg) => sum + (pkg.githubStats?.stars || 0), 0);
         const totalForks = successfulStats.reduce((sum, pkg) => sum + (pkg.githubStats?.forks || 0), 0);
         return {
             username,
             packages: successfulStats,
-            totalDownloads,
+            totalMonthlyDownloads,
             totalWeeklyDownloads,
             totalStars,
             totalForks,

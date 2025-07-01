@@ -5,7 +5,9 @@ A comprehensive toolkit for tracking NPM package statistics with CLI, MCP server
 ## Features
 
 ### 🖥️ CLI Tool
-- Get total downloads and GitHub stars for NPM packages
+- Get monthly and weekly download statistics for NPM packages
+- GitHub stars integration for comprehensive metrics
+- Package rankings and detailed analytics
 - Support for user-specific package aggregation
 - Simple command-line interface
 
@@ -49,10 +51,10 @@ npx @kazuph/npmstat-cli kazuph
 brew install swiftbar
 
 # Copy the shell script to SwiftBar's plugin directory
-cp xbar-scripts/npm-stats.5m.sh ~/Library/Application\ Support/SwiftBar/
+cp xbar-scripts/npm-stats.3h.sh ~/Library/Application\ Support/SwiftBar/
 
 # Configure the username in the script
-# Edit the USERNAME variable in npm-stats.5m.sh
+# Edit the USERNAME variable in npm-stats.3h.sh
 ```
 
 SwiftBar is actively maintained and provides better compatibility with modern macOS versions compared to the original xbar.
@@ -84,7 +86,7 @@ npmstat kazuph --json
 Add to Claude Code configuration to enable NPM statistics queries.
 
 ### Menu Bar Integration
-The SwiftBar script automatically refreshes every 5 minutes and displays your total monthly downloads in the menu bar. Click to see detailed statistics.
+The SwiftBar script automatically refreshes every 3 hours and displays your total monthly downloads in the menu bar. Click to see detailed statistics.
 
 ## Development
 

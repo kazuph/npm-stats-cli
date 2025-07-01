@@ -35,7 +35,6 @@ export interface GitHubStats {
 }
 export interface PackageStatsWithRanking {
     name: string;
-    totalDownloads: number;
     weeklyDownloads: number;
     monthlyDownloads: number;
     githubStats?: GitHubStats;
@@ -45,7 +44,7 @@ export interface PackageStatsWithRanking {
 export interface UserPackageStats {
     username: string;
     packages: PackageStatsWithRanking[];
-    totalDownloads: number;
+    totalMonthlyDownloads: number;
     totalWeeklyDownloads: number;
     totalStars: number;
     totalForks: number;

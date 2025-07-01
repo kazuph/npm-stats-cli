@@ -29,7 +29,7 @@ program
         if (options?.short) {
             spinner.stop();
             console.log(chalk.bold.green(`📦 ${username}'s NPM Stats:`));
-            console.log(`Monthly Downloads: ${chalk.yellow(formatNumber(stats.totalDownloads))}`);
+            console.log(`Monthly Downloads: ${chalk.yellow(formatNumber(stats.totalMonthlyDownloads))}`);
             console.log(`Weekly Downloads: ${chalk.yellow(formatNumber(stats.totalWeeklyDownloads))}`);
             console.log(`Total Stars: ${chalk.yellow(formatNumber(stats.totalStars))}`);
             console.log(`Total Packages: ${chalk.yellow(stats.packageCount)}`);
@@ -61,7 +61,7 @@ program
         if (options.short) {
             spinner.stop();
             console.log(chalk.bold.green(`📦 ${username}'s NPM Stats:`));
-            console.log(`Monthly Downloads: ${chalk.yellow(formatNumber(stats.totalDownloads))}`);
+            console.log(`Monthly Downloads: ${chalk.yellow(formatNumber(stats.totalMonthlyDownloads))}`);
             console.log(`Weekly Downloads: ${chalk.yellow(formatNumber(stats.totalWeeklyDownloads))}`);
             console.log(`Total Stars: ${chalk.yellow(formatNumber(stats.totalStars))}`);
             console.log(`Total Packages: ${chalk.yellow(stats.packageCount)}`);
@@ -161,7 +161,7 @@ function displayUserStats(stats, summaryOnly = false, showRankings = false, incl
         console.log(chalk.gray('='.repeat(50)));
         console.log(chalk.bold('Summary:'));
         console.log(`📦 Total Packages: ${chalk.yellow(stats.packageCount)}`);
-        console.log(`⬇️  Monthly Downloads: ${chalk.yellow(formatNumber(stats.totalDownloads))}`);
+        console.log(`⬇️  Monthly Downloads: ${chalk.yellow(formatNumber(stats.totalMonthlyDownloads))}`);
         console.log(`📅 Weekly Downloads: ${chalk.yellow(formatNumber(stats.totalWeeklyDownloads))}`);
         if (includeGitHub) {
             console.log(`⭐ Total Stars: ${chalk.yellow(formatNumber(stats.totalStars))}`);
@@ -248,7 +248,7 @@ function displayUserStats(stats, summaryOnly = false, showRankings = false, incl
             colWidths: detailedColWidths
         });
         stats.packages
-            .sort((a, b) => b.totalDownloads - a.totalDownloads)
+            .sort((a, b) => b.monthlyDownloads - a.monthlyDownloads)
             .forEach(pkg => {
             const row = [
                 pkg.name,
@@ -282,7 +282,7 @@ function displayUserStats(stats, summaryOnly = false, showRankings = false, incl
         // Add totals row
         const totalRow = [
             chalk.bold('TOTAL'),
-            chalk.bold.yellow(formatNumber(stats.totalDownloads)),
+            chalk.bold.yellow(formatNumber(stats.totalMonthlyDownloads)),
             chalk.bold.yellow(formatNumber(stats.totalWeeklyDownloads)),
             '',
             ''
@@ -301,7 +301,7 @@ function displayUserStats(stats, summaryOnly = false, showRankings = false, incl
         console.log(chalk.gray('='.repeat(50)));
         const totalPackages = stats.packageCount + (stats.packagesWithoutStats?.length || 0);
         console.log(`📦 Total Packages: ${chalk.yellow(totalPackages)}`);
-        console.log(`⬇️  Monthly Downloads: ${chalk.yellow(formatNumber(stats.totalDownloads))}`);
+        console.log(`⬇️  Monthly Downloads: ${chalk.yellow(formatNumber(stats.totalMonthlyDownloads))}`);
         console.log(`📅 Weekly Downloads: ${chalk.yellow(formatNumber(stats.totalWeeklyDownloads))}`);
         if (includeGitHub) {
             console.log(`⭐ Total Stars: ${chalk.yellow(formatNumber(stats.totalStars))}`);
