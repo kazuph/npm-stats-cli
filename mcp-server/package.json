@@ -1,0 +1,21 @@
+{
+  "name": "@npm-stats-toolkit/mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for NPM package statistics",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@npm-stats-toolkit/shared": "workspace:*",
+    "@modelcontextprotocol/sdk": "^0.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

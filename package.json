@@ -1,0 +1,25 @@
+{
+  "name": "npm-stats-toolkit",
+  "version": "1.0.0",
+  "description": "A comprehensive toolkit for tracking NPM package statistics",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --recursive dev",
+    "build": "pnpm --recursive build",
+    "test": "pnpm --recursive test"
+  },
+  "keywords": [
+    "npm",
+    "statistics",
+    "cli",
+    "mcp",
+    "menubar",
+    "macos"
+  ],
+  "author": "kazuph",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
